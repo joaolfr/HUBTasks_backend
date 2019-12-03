@@ -8,7 +8,7 @@ module.exports = {
     async show(req, res){
         const { user_id } = req.headers;
 
-        const task = await  Task.find({ user: user_id });
+        const task = await  Task.find({ user: user_id, active:true });
 
 
         return res.json(task);
@@ -48,10 +48,17 @@ module.exports = {
 
     },
     //REMOÇÃO DE UMA TASK 
+    // async delete(req, res){
+    //     const task_id = req.params.id;
+
+    //     const task = await Task.findByIdAndDelete(task_id);
+
+    //     return res.json(task);
+    // }
     async delete(req, res){
         const task_id = req.params.id;
 
-        const task = await Task.findByIdAndDelete(task_id);
+        const task = await Task.findByIdAndUpdate(task_id, {active:false},{new:true});
 
         return res.json(task);
     }

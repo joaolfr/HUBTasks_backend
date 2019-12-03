@@ -10,7 +10,7 @@ routes.post('/authenticate', SessionController.show); //autenticação de usuár
 
 routes.post('/task', TaskController.store); //cria uma nova task vinculada a um user
 routes.get('/tasks', TaskController.show);  //lista as tasks do usuário
-routes.put('/tasks/:id', TaskController.update);  //atualiza as tasks do usuário
-routes.delete('/tasks/:id', TaskController.delete);  //atualiza as tasks do usuário
+routes.put('/update/:id', TaskController.update);  //atualiza as tasks do usuário
+routes.put('/delete/:id', TaskController.delete);  //atualiza as tasks do usuário
 
 module.exports = routes;
