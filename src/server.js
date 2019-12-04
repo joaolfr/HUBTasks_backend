@@ -14,4 +14,4 @@ mongoose.connect('mongodb+srv://teste:teste@mongo-jwmkv.mongodb.net/hubtec?retry
 app.use(cors()); 
 app.use(express.json());
 app.use(routes);
-app.listen(3001);
+app.listen(process.env.PORT || 3001);
