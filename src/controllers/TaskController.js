@@ -8,7 +8,7 @@ module.exports = {
     async show(req, res){
         const { user_id } = req.headers;
 
-        const task = await  Task.find({ user: user_id, active:true });
+        const task = await  Task.find({ user: user_id, active:true }).sort({data_entrega: 'asc'});
 
 
         return res.json(task);
